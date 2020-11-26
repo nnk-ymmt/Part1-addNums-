@@ -8,34 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    @IBOutlet private weak var textFields: [UITextField]!
+//    @IBOutlet private weak var textFields: [UITextField]!
     @IBOutlet private weak var textField1: UITextField!
     @IBOutlet private weak var textField2: UITextField!
     @IBOutlet private weak var textField3: UITextField!
     @IBOutlet private weak var textField4: UITextField!
     @IBOutlet private weak var textField5: UITextField!
     @IBOutlet private weak var answerLabel: UILabel!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         textField1.becomeFirstResponder()
     }
-    
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
-    
+
     @IBAction private func add(_ sender: Any) {
         let answer: Int = passNum(textField1) + passNum(textField2) + passNum(textField3) + passNum(textField4) + passNum(textField5)
         answerLabel.text = String(answer)
     }
-    
+
     private func passNum(_ textField: UITextField) -> Int {
         if textField.text != nil {
             if let stringNum = textField.text {
@@ -98,27 +94,27 @@ class ViewController: UIViewController {
 //}
 
 // 方法5
-// computed property
-// private var textFields : [UITextField] {
-//     [textField1, textField2, textField3, textField4, textField5]
-// }
-// @IBOutlet private weak var resultLabel: UILabel!
-// @IBAction private func calcButton(_ sender: Any) {
-//     var result : Int = 0
-//     for textField in textFields {
-//         if textField.text == "" {
-//             textField.text = "0"
-//         }
-//         result += Int( textField.text! )!
-//     }
-//     resultLabel.text = result.description
-// }
+//computed property
+//private var textFields : [UITextField] {
+//    [textField1, textField2, textField3, textField4, textField5]
+//}
+//@IBOutlet private weak var resultLabel: UILabel!
+//@IBAction private func calcButton(_ sender: Any) {
+//    var result: Int = 0
+//    for textField in textFields {
+//        if textField.text == "" {
+//            textField.text = "0"
+//        }
+//        result += Int( textField.text ?? "" ) ?? 0
+//    }
+//    resultLabel.text = result.description
+//}
 
 // 方法6
-// @IBAction private func addtion(_ sender: Any) {
-//     let textFields: [UITextField] = [textField1, textField2, textField3, textField4, textField5]
-//     let sum = textFields.reduce(0, { result, element in
-//         result + (Int(element.text!) ?? 0)
-//     })
-//     calculationResult.text = String(sum)
-// }
+//@IBAction private func addtion(_ sender: Any) {
+//    let textFields: [UITextField] = [textField1, textField2, textField3, textField4, textField5]
+//    let sum = textFields.reduce(0, { result, element in
+//        result + (Int(element.text!) ?? 0)
+//    })
+//    calculationResult.text = String(sum)
+//}
